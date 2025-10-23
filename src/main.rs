@@ -2,12 +2,12 @@ use rust_llm_layer::{
     PatternAnalyzer, QueryLog, IndexRecommender, PerformancePredictor
 };
 
-/// Main demo function - ye demo function hai jo sab kuch test karta hai
 fn main() {
     println!("=== Rust LLM Layer Demo ===\n");
 
     let mut analyzer = PatternAnalyzer::new();
 
+    //yaha pe badme real database connection bhi add karna ha
     let log1 = QueryLog::new(
         "SELECT * FROM users WHERE id = 1".to_string(),
         150,
@@ -68,4 +68,8 @@ fn main() {
     println!("Estimated Time: {}ms", prediction.estimated_time_ms);
     println!("Confidence: {:.2}", prediction.confidence);
     println!("Recommendation: {}", prediction.recommendation);
+    
+    //yaha pe badme export functionality bhi add karna ha
+    //function export_to_json() {}
+    //function export_to_csv() {}
 }

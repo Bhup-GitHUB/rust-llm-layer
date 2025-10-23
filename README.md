@@ -4,11 +4,24 @@ A high-performance database query optimization layer built in Rust that uses mac
 
 ## 🚀 Features
 
+### Core Features
+
 - **Query Pattern Analysis**: Automatically identifies slow and frequent query patterns
 - **Performance Prediction**: Predicts query execution time based on historical data
 - **Index Recommendations**: Suggests optimal database indexes for better performance
 - **Real-time Monitoring**: Tracks query metrics and provides insights
 - **Efficiency Scoring**: Calculates query efficiency based on rows scanned vs execution time
+
+### Advanced Features
+
+- **Query Parser**: Extract WHERE clauses, JOIN conditions, ORDER BY from queries
+- **Column Usage Tracker**: Track which columns are used in WHERE/JOIN most often
+- **Time-based Analysis**: Find patterns by hour/day (peak times)
+- **Query Fingerprinting**: Group similar queries together (e.g., SELECT \* FROM users WHERE id = 1 and id = 2)
+- **Table Join Analysis**: Detect frequently joined tables
+- **Query Cost Calculator**: Estimate query cost based on rows scanned + execution time
+- **Anomaly Detection**: Flag queries that suddenly become slow
+- **Export to JSON/CSV**: Save analysis results to files
 
 ## 📁 Project Structure
 
@@ -17,15 +30,23 @@ rust-llm-layer/
 ├── src/
 │   ├── analyzer/           # Query analysis modules
 │   │   ├── query_log.rs    # Query log data structures
-│   │   └── pattern_analyzer.rs  # Pattern detection algorithms
+│   │   ├── pattern_analyzer.rs  # Pattern detection algorithms
+│   │   ├── query_parser.rs      # SQL query parsing
+│   │   ├── column_tracker.rs    # Column usage tracking
+│   │   ├── time_analyzer.rs     # Time-based analysis
+│   │   ├── query_fingerprinter.rs # Query fingerprinting
+│   │   ├── join_analyzer.rs     # Join pattern analysis
+│   │   ├── cost_calculator.rs   # Query cost calculation
+│   │   ├── anomaly_detector.rs  # Anomaly detection
+│   │   └── export.rs            # Export functionality
 │   ├── predictor/          # Performance prediction
 │   │   └── performance_predictor.rs
-│   ├── recommender/        # Index recommendations
+│   ├── recommender/      # Index recommendations
 │   │   └── index_recommender.rs
-│   ├── lib.rs             # Library exports
-│   └── main.rs            # Demo application
-├── tests/                 # Integration tests
-└── Cargo.toml            # Dependencies
+│   ├── lib.rs           # Library exports
+│   └── main.rs          # Demo application
+├── tests/               # Integration tests
+└── Cargo.toml          # Dependencies
 ```
 
 ## 🛠️ Core Components
@@ -57,6 +78,62 @@ rust-llm-layer/
 - Suggests BTree or Hash indexes
 - Calculates priority and improvement estimates
 - Provides detailed reasoning
+
+### 5. Query Parser
+
+- Extracts WHERE clauses, JOIN conditions, ORDER BY
+- Parses SQL query structure
+- Generates query fingerprints
+- Identifies query components
+
+### 6. Column Usage Tracker
+
+- Tracks column usage in WHERE/JOIN clauses
+- Identifies frequently used columns
+- Suggests indexing candidates
+- Provides usage statistics
+
+### 7. Time-based Analyzer
+
+- Analyzes query patterns by hour/day
+- Identifies peak usage times
+- Detects time-based performance issues
+- Provides time-based recommendations
+
+### 8. Query Fingerprinter
+
+- Groups similar queries together
+- Identifies query patterns
+- Tracks performance trends
+- Provides optimization insights
+
+### 9. Join Analyzer
+
+- Analyzes table join patterns
+- Identifies frequently joined tables
+- Detects slow join operations
+- Provides join optimization suggestions
+
+### 10. Cost Calculator
+
+- Calculates query execution cost
+- Estimates resource usage
+- Provides cost-based recommendations
+- Compares optimization effectiveness
+
+### 11. Anomaly Detector
+
+- Detects sudden performance changes
+- Identifies unusual query patterns
+- Flags performance anomalies
+- Provides alerting capabilities
+
+### 12. Export Functionality
+
+- Export analysis results to JSON
+- Export data to CSV format
+- Save reports for further analysis
+- Integration with external tools
 
 ## 🚀 Quick Start
 

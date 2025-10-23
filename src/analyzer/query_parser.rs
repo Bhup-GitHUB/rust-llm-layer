@@ -1,6 +1,5 @@
 use serde::{Deserialize, Serialize};
 
-/// Parsed query components - ye struct query ke different parts store karta hai
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct ParsedQuery {
     pub where_clauses: Vec<String>,
@@ -24,17 +23,14 @@ impl ParsedQuery {
     }
 }
 
-/// Query parser - SQL queries ko parse karke components extract karta hai
 pub struct QueryParser;
 
 impl QueryParser {
-    /// Parse a SQL query and extract its components
-    /// SQL query ko parse karke different parts extract karta hai - main functionality hai ye
+    //yaha pe badme complex SQL parsing bhi add karna ha
     pub fn parse(&self, query: &str) -> ParsedQuery {
         let query_upper = query.to_uppercase();
         let mut parsed = ParsedQuery::new();
         
-        // Extract WHERE clauses - ye important hai performance ke liye
         if let Some(where_start) = query_upper.find("WHERE") {
             if let Some(where_end) = self.find_clause_end(&query[where_start..]) {
                 let where_clause = &query[where_start + 5..where_start + where_end];
@@ -42,10 +38,8 @@ impl QueryParser {
             }
         }
         
-        // Extract JOIN conditions - joins performance pe impact karte hain
         parsed.join_conditions = self.extract_joins(query);
         
-        // Extract ORDER BY columns
         if let Some(order_start) = query_upper.find("ORDER BY") {
             if let Some(order_end) = self.find_clause_end(&query[order_start..]) {
                 let order_clause = &query[order_start + 9..order_start + order_end];
@@ -53,7 +47,6 @@ impl QueryParser {
             }
         }
         
-        // Extract SELECT columns
         if let Some(select_start) = query_upper.find("SELECT") {
             if let Some(from_start) = query_upper.find("FROM") {
                 let select_clause = &query[select_start + 6..from_start];
@@ -61,7 +54,6 @@ impl QueryParser {
             }
         }
         
-        // Extract FROM tables
         if let Some(from_start) = query_upper.find("FROM") {
             if let Some(where_start) = query_upper.find("WHERE") {
                 let from_clause = &query[from_start + 4..where_start];
@@ -74,7 +66,6 @@ impl QueryParser {
             }
         }
         
-        // Generate query fingerprint - ye similar queries group karne ke liye hai
         parsed.query_fingerprint = self.generate_fingerprint(&parsed);
         
         parsed
@@ -139,7 +130,6 @@ impl QueryParser {
     }
     
     fn generate_fingerprint(&self, parsed: &ParsedQuery) -> String {
-        // Create a fingerprint based on query structure - ye similar queries identify karne ke liye hai
         let mut fingerprint = String::new();
         fingerprint.push_str(&format!("SELECT_{}", parsed.select_columns.len()));
         fingerprint.push_str(&format!("_FROM_{}", parsed.from_tables.len()));

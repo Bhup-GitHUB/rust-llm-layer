@@ -1,5 +1,19 @@
 pub mod query_log;
 pub mod pattern_analyzer;
+pub mod query_parser;
+pub mod column_tracker;
+pub mod time_analyzer;
+pub mod query_fingerprinter;
+pub mod join_analyzer;
+pub mod cost_calculator;
+pub mod anomaly_detector;
 
 pub use query_log::QueryLog;
 pub use pattern_analyzer::{PatternAnalyzer, QueryPattern};
+pub use query_parser::{QueryParser, ParsedQuery};
+pub use column_tracker::{ColumnTracker, ColumnUsage};
+pub use time_analyzer::{TimeAnalyzer, TimePattern};
+pub use query_fingerprinter::{QueryFingerprinter, QueryFingerprint};
+pub use join_analyzer::{JoinAnalyzer, JoinPattern};
+pub use cost_calculator::{CostCalculator, QueryCost};
+pub use anomaly_detector::{AnomalyDetector, AnomalyResult};
