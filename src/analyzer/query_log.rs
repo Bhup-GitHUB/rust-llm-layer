@@ -60,7 +60,7 @@ impl QueryLog {
     }
 
     /// Calculates the efficiency score based on rows scanned vs execution time
-    /// ye function efficiency calculate karta hai
+    /// ye function efficiency calculate karta hai - important hai ye method
     pub fn efficiency_score(&self) -> f64 {
         if self.rows_scanned == 0 {
             return 1.0; // perfect efficiency if no rows scanned
