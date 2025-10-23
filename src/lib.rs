@@ -8,7 +8,9 @@ pub use analyzer::{
     QueryFingerprinter, QueryFingerprint, JoinAnalyzer, JoinPattern,
     CostCalculator, QueryCost, AnomalyDetector, AnomalyResult,
     DataExporter, ExistingIndexChecker, ExistingIndex, IndexConflict,
-    IndexUsageSimulator, IndexSimulation, PartialIndexRecommender, PartialIndexRecommendation
+    IndexUsageSimulator, IndexSimulation, PartialIndexRecommender, PartialIndexRecommendation,
+    IndexMaintenanceCostAnalyzer, MaintenanceCost, PriorityScoringAlgorithm, PriorityScore,
+    IndexRemovalRecommender, IndexUsageStats, RemovalRecommendation
 };
 pub use recommender::{IndexRecommender, IndexRecommendation};
 pub use predictor::{PerformancePredictor, PerformancePrediction};

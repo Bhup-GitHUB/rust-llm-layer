@@ -27,6 +27,9 @@ A high-performance database query optimization layer built in Rust that uses mac
 - **Existing Index Checker**: Avoid recommending duplicate indexes
 - **Index Usage Simulator**: Predict how much an index would help
 - **Partial Index Recommendations**: Suggest filtered indexes (e.g., WHERE active = true)
+- **Index Maintenance Cost**: Estimate write performance impact
+- **Priority Scoring Algorithm**: Better prioritization based on multiple factors
+- **Index Removal Suggestions**: Find unused indexes to drop
 
 ## 📁 Project Structure
 
@@ -46,7 +49,10 @@ rust-llm-layer/
 │   │   ├── export.rs            # Export functionality
 │   │   ├── existing_index_checker.rs # Existing index detection
 │   │   ├── index_usage_simulator.rs  # Index impact simulation
-│   │   └── partial_index_recommender.rs # Partial index suggestions
+│   │   ├── partial_index_recommender.rs # Partial index suggestions
+│   │   ├── index_maintenance_cost.rs # Maintenance cost analysis
+│   │   ├── priority_scoring.rs       # Priority scoring algorithm
+│   │   └── index_removal_recommender.rs # Index removal suggestions
 │   ├── predictor/          # Performance prediction
 │   │   └── performance_predictor.rs
 │   ├── recommender/      # Index recommendations
@@ -177,6 +183,27 @@ rust-llm-layer/
 - Recommends partial indexes (e.g., WHERE active = true)
 - Optimizes storage usage with conditional indexes
 - Identifies high-selectivity filter conditions
+
+### 18. Index Maintenance Cost Analyzer
+
+- Estimates write performance impact of indexes
+- Calculates INSERT/UPDATE/DELETE overhead
+- Provides maintenance cost vs query benefit analysis
+- Suggests optimal index configurations
+
+### 19. Priority Scoring Algorithm
+
+- Advanced prioritization based on multiple factors
+- Considers frequency, performance impact, and cost
+- Weighted scoring for index recommendations
+- Dynamic priority adjustment based on usage patterns
+
+### 20. Index Removal Recommender
+
+- Identifies unused or redundant indexes
+- Analyzes index usage statistics
+- Suggests indexes to drop for better performance
+- Provides safe removal recommendations
 
 ## 🚀 Quick Start
 

@@ -11,6 +11,9 @@ pub mod export;
 pub mod existing_index_checker;
 pub mod index_usage_simulator;
 pub mod partial_index_recommender;
+pub mod index_maintenance_cost;
+pub mod priority_scoring;
+pub mod index_removal_recommender;
 
 pub use query_log::QueryLog;
 pub use pattern_analyzer::{PatternAnalyzer, QueryPattern};
@@ -25,3 +28,6 @@ pub use export::DataExporter;
 pub use existing_index_checker::{ExistingIndexChecker, ExistingIndex, IndexConflict};
 pub use index_usage_simulator::{IndexUsageSimulator, IndexSimulation};
 pub use partial_index_recommender::{PartialIndexRecommender, PartialIndexRecommendation};
+pub use index_maintenance_cost::{IndexMaintenanceCostAnalyzer, MaintenanceCost};
+pub use priority_scoring::{PriorityScoringAlgorithm, PriorityScore};
+pub use index_removal_recommender::{IndexRemovalRecommender, IndexUsageStats, RemovalRecommendation};
