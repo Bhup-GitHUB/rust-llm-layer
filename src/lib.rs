@@ -10,7 +10,9 @@ pub use analyzer::{
     DataExporter, ExistingIndexChecker, ExistingIndex, IndexConflict,
     IndexUsageSimulator, IndexSimulation, PartialIndexRecommender, PartialIndexRecommendation,
     IndexMaintenanceCostAnalyzer, MaintenanceCost, PriorityScoringAlgorithm, PriorityScore,
-    IndexRemovalRecommender, IndexUsageStats, RemovalRecommendation
+    IndexRemovalRecommender, IndexUsageStats, RemovalRecommendation,
+    QueryPlanAnalyzer, QueryPlan, PlanOperation, SchemaOptimizer, TableSchema, ColumnInfo, SchemaOptimization,
+    PerformanceMonitor, PerformanceMetric, PerformanceAlert, DeadlockDetector, DeadlockInfo, DeadlockPrevention
 };
 pub use recommender::{IndexRecommender, IndexRecommendation};
 pub use predictor::{PerformancePredictor, PerformancePrediction};

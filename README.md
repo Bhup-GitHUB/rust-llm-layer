@@ -30,6 +30,13 @@ A high-performance database query optimization layer built in Rust that uses mac
 - **Index Maintenance Cost**: Estimate write performance impact
 - **Priority Scoring Algorithm**: Better prioritization based on multiple factors
 - **Index Removal Suggestions**: Find unused indexes to drop
+- **Query Plan Analyzer**: Analyze and optimize execution plans
+- **Database Schema Optimizer**: Suggest schema improvements
+- **Real-time Performance Monitor**: Live database performance tracking
+- **Auto-scaling Recommendations**: Suggest when to scale resources
+- **Query Cache Optimizer**: Optimize query result caching
+- **Connection Pool Analyzer**: Analyze and optimize database connections
+- **Deadlock Detection**: Identify and prevent database deadlocks
 
 ## 📁 Project Structure
 
@@ -52,7 +59,11 @@ rust-llm-layer/
 │   │   ├── partial_index_recommender.rs # Partial index suggestions
 │   │   ├── index_maintenance_cost.rs # Maintenance cost analysis
 │   │   ├── priority_scoring.rs       # Priority scoring algorithm
-│   │   └── index_removal_recommender.rs # Index removal suggestions
+│   │   ├── index_removal_recommender.rs # Index removal suggestions
+│   │   ├── query_plan_analyzer.rs        # Query plan analysis
+│   │   ├── schema_optimizer.rs         # Schema optimization
+│   │   ├── performance_monitor.rs      # Real-time monitoring
+│   │   └── deadlock_detector.rs        # Deadlock detection
 │   ├── predictor/          # Performance prediction
 │   │   └── performance_predictor.rs
 │   ├── recommender/      # Index recommendations
@@ -204,6 +215,55 @@ rust-llm-layer/
 - Analyzes index usage statistics
 - Suggests indexes to drop for better performance
 - Provides safe removal recommendations
+
+### 21. Query Plan Analyzer
+
+- Analyzes database execution plans
+- Identifies inefficient query patterns
+- Suggests plan optimizations
+- Compares different execution strategies
+
+### 22. Database Schema Optimizer
+
+- Analyzes table structures and relationships
+- Suggests schema improvements
+- Recommends data type optimizations
+- Identifies normalization opportunities
+
+### 23. Real-time Performance Monitor
+
+- Live database performance tracking
+- Real-time metrics collection
+- Performance alerting system
+- Historical trend analysis
+
+### 24. Auto-scaling Recommender
+
+- Analyzes resource utilization patterns
+- Suggests when to scale up/down
+- Predicts resource needs
+- Optimizes cost vs performance
+
+### 25. Query Cache Optimizer
+
+- Analyzes query result caching patterns
+- Optimizes cache hit ratios
+- Suggests cache configuration improvements
+- Identifies cacheable query patterns
+
+### 26. Connection Pool Analyzer
+
+- Analyzes database connection usage
+- Optimizes connection pool settings
+- Identifies connection leaks
+- Suggests pool size adjustments
+
+### 27. Deadlock Detection System
+
+- Monitors for database deadlocks
+- Identifies deadlock-prone queries
+- Suggests transaction optimizations
+- Provides deadlock prevention strategies
 
 ## 🚀 Quick Start
 

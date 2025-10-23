@@ -14,6 +14,10 @@ pub mod partial_index_recommender;
 pub mod index_maintenance_cost;
 pub mod priority_scoring;
 pub mod index_removal_recommender;
+pub mod query_plan_analyzer;
+pub mod schema_optimizer;
+pub mod performance_monitor;
+pub mod deadlock_detector;
 
 pub use query_log::QueryLog;
 pub use pattern_analyzer::{PatternAnalyzer, QueryPattern};
@@ -31,3 +35,7 @@ pub use partial_index_recommender::{PartialIndexRecommender, PartialIndexRecomme
 pub use index_maintenance_cost::{IndexMaintenanceCostAnalyzer, MaintenanceCost};
 pub use priority_scoring::{PriorityScoringAlgorithm, PriorityScore};
 pub use index_removal_recommender::{IndexRemovalRecommender, IndexUsageStats, RemovalRecommendation};
+pub use query_plan_analyzer::{QueryPlanAnalyzer, QueryPlan, PlanOperation};
+pub use schema_optimizer::{SchemaOptimizer, TableSchema, ColumnInfo, SchemaOptimization};
+pub use performance_monitor::{PerformanceMonitor, PerformanceMetric, PerformanceAlert};
+pub use deadlock_detector::{DeadlockDetector, DeadlockInfo, DeadlockPrevention};
