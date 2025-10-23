@@ -22,6 +22,11 @@ A high-performance database query optimization layer built in Rust that uses mac
 - **Query Cost Calculator**: Estimate query cost based on rows scanned + execution time
 - **Anomaly Detection**: Flag queries that suddenly become slow
 - **Export to JSON/CSV**: Save analysis results to files
+- **Composite Index Recommendation**: Suggest multi-column indexes (e.g., CREATE INDEX ON users(email, created_at))
+- **Index Cost-Benefit Analysis**: Calculate storage cost vs performance gain
+- **Existing Index Checker**: Avoid recommending duplicate indexes
+- **Index Usage Simulator**: Predict how much an index would help
+- **Partial Index Recommendations**: Suggest filtered indexes (e.g., WHERE active = true)
 
 ## 📁 Project Structure
 
@@ -38,7 +43,10 @@ rust-llm-layer/
 │   │   ├── join_analyzer.rs     # Join pattern analysis
 │   │   ├── cost_calculator.rs   # Query cost calculation
 │   │   ├── anomaly_detector.rs  # Anomaly detection
-│   │   └── export.rs            # Export functionality
+│   │   ├── export.rs            # Export functionality
+│   │   ├── existing_index_checker.rs # Existing index detection
+│   │   ├── index_usage_simulator.rs  # Index impact simulation
+│   │   └── partial_index_recommender.rs # Partial index suggestions
 │   ├── predictor/          # Performance prediction
 │   │   └── performance_predictor.rs
 │   ├── recommender/      # Index recommendations
@@ -134,6 +142,41 @@ rust-llm-layer/
 - Export data to CSV format
 - Save reports for further analysis
 - Integration with external tools
+
+### 13. Composite Index Recommender
+
+- Suggests multi-column indexes for complex queries
+- Analyzes column combinations for optimal performance
+- Generates CREATE INDEX statements
+- Considers query patterns for index design
+
+### 14. Index Cost-Benefit Analyzer
+
+- Calculates storage cost of indexes
+- Estimates performance improvement
+- Provides ROI analysis for index recommendations
+- Balances storage overhead vs query speed gains
+
+### 15. Existing Index Checker
+
+- Scans database for existing indexes
+- Prevents duplicate index recommendations
+- Identifies redundant or overlapping indexes
+- Suggests index consolidation opportunities
+
+### 16. Index Usage Simulator
+
+- Simulates index impact on query performance
+- Predicts speed improvements before implementation
+- Estimates query execution time with new indexes
+- Provides performance projections
+
+### 17. Partial Index Recommender
+
+- Suggests filtered indexes for specific conditions
+- Recommends partial indexes (e.g., WHERE active = true)
+- Optimizes storage usage with conditional indexes
+- Identifies high-selectivity filter conditions
 
 ## 🚀 Quick Start
 

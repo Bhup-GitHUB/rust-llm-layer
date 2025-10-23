@@ -7,6 +7,10 @@ pub mod query_fingerprinter;
 pub mod join_analyzer;
 pub mod cost_calculator;
 pub mod anomaly_detector;
+pub mod export;
+pub mod existing_index_checker;
+pub mod index_usage_simulator;
+pub mod partial_index_recommender;
 
 pub use query_log::QueryLog;
 pub use pattern_analyzer::{PatternAnalyzer, QueryPattern};
@@ -17,3 +21,7 @@ pub use query_fingerprinter::{QueryFingerprinter, QueryFingerprint};
 pub use join_analyzer::{JoinAnalyzer, JoinPattern};
 pub use cost_calculator::{CostCalculator, QueryCost};
 pub use anomaly_detector::{AnomalyDetector, AnomalyResult};
+pub use export::DataExporter;
+pub use existing_index_checker::{ExistingIndexChecker, ExistingIndex, IndexConflict};
+pub use index_usage_simulator::{IndexUsageSimulator, IndexSimulation};
+pub use partial_index_recommender::{PartialIndexRecommender, PartialIndexRecommendation};
