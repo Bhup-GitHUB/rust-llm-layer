@@ -1,5 +1,6 @@
 use crate::analyzer::QueryPattern;
 
+/// Index recommendation for database optimization - database optimization ke liye index recommend karta hai
 #[derive(Debug, Clone)]
 pub struct IndexRecommendation {
     pub table: String,
@@ -16,6 +17,7 @@ pub enum IndexType {
     Hash,
 }
 
+/// Recommends database indexes based on query patterns - query patterns ke basis pe indexes suggest karta hai
 pub struct IndexRecommender {
     slowness_threshold: f64,
     frequency_threshold: u64,
